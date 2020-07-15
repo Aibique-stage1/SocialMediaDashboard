@@ -1,0 +1,136 @@
+:root{
+
+    /* Heights and Widths */
+    --h-margin-main:10rem;
+    --g-rows:20px;
+    /* Dark Mode Variables */
+    /* BG colors */
+    --bg-d-very-dark: hsl(230, 17%, 14%);
+    --bg-d-very-dark-blue: hsl(232, 19%, 15%);
+    --bg-d-card-desaturated-blue: hsl(228, 28%, 20%);
+    --bg-d-hover:hsl(232, 17%, 25%);
+    /* Txt Color */
+    --txt-d-desaturated-blue: hsl(228, 34%, 66%);
+    --txt-d-white: hsl(0, 0%, 100%);
+/* /////////////////////////////////////////////////////// */
+    /* Light Mode Variables */
+    /* Body-Variables */
+    --bg-l-color:white;
+    --bg-l-top:hsl(225, 100%, 98%);
+    --bg-l-card:hsl(227, 47%, 96%);
+    --bg-l-hover: hsl(216, 9%, 88%);
+    /* --bg-l-hover: hsl(216, 9%, 90%); */
+    /*Text Colors*/
+    --txt-l-family:Georgia, 'Times New Roman', Times, serif;
+    --txt-l-light-gray:hsl(228, 12%, 44%);
+    --txt-l-black:hsl(230, 17%, 14%);
+}
+
+
+
+/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+
+
+
+@media screen and (min-width:769px){
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+/* DARK MODE******************************************************** */
+/******************************************************************* */
+    body.dark .tittle{
+        border-bottom: none;
+    }
+    body.dark .followers-section div:hover,
+    body.dark .overview div:hover{
+    background-color: var(--bg-d-hover);
+}
+
+
+/* BODY     ******************************************************** */
+/******************************************************************* */
+    body{
+        padding: 0;
+        background-color: var(--bg-l-color);
+    }
+
+
+/* HEADER  ********************************************************* */
+/******************************************************************* */
+    header{
+        background-color: var(--bg-l-color);
+        position: absolute;
+        border-radius: 0px 0px 15px 15px;
+        z-index: -10;
+        right: 0rem;
+        height:17rem;
+        left: 0rem;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin: 0;
+        padding:4rem 3rem ;
+    }
+    .tittle{
+        border-bottom: none;
+    }
+    .toggle-mode{
+        font-size: 90%;
+        display: flex;
+        flex-shrink: 1;
+    }
+    .toggle-mode span{
+        margin-right: 15px;
+    }
+    .label:hover{
+        cursor: pointer;
+    }
+    [type="checkbox"]:checked + .label:hover{
+        background-image: linear-gradient(to right top, rgb(67, 163, 228)  , rgb(0, 231, 173));
+        cursor: pointer;
+    }
+
+
+/* MAIN     ******************************************************** */
+/******************************************************************* */
+    main{
+        margin-top: var(--h-margin-main);
+        padding:0 3rem;
+    }
+    /* Seccion01 */
+    .followers-section{
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(1,13rem);
+        grid-row-gap: 1rem;
+        padding: 0;
+        display: grid;
+        grid-column-gap: var(--g-rows);
+    }
+    .face:hover,
+    .twit:hover,
+    .yout:hover,
+    .inst:hover{
+        cursor: pointer;
+        background-color: var(--bg-l-hover);
+}
+    /* Seccion03 */
+    .overview{
+        grid-template-rows: repeat(2,6.5rem);
+        grid-template-columns: repeat(4,1fr);
+        grid-row-gap: 1.3rem;
+        grid-column-gap: var(--g-rows);
+        padding: 0;
+        display: grid;
+    }
+    .overview div:hover{
+        cursor: pointer;
+        background-color: var(--bg-l-hover);
+    }
+}

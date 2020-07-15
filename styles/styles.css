@@ -1,0 +1,457 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+:root{
+    /* Dark Mode Variables */
+
+    /* BG colors */
+    --bg-d-very-dark: hsl(230, 17%, 14%);
+    --bg-d-very-dark-blue: hsl(232, 19%, 15%);
+    --bg-d-card-desaturated-blue: hsl(228, 28%, 20%);
+    /* Txt Color */
+    --txt-d-desaturated-blue: hsl(228, 34%, 66%);
+    --txt-d-white: hsl(0, 0%, 100%);
+/* /////////////////////////////////////////////////////// */
+    /* Light Mode Variables */
+
+    /* Body-Variables */
+    --bg-l-color:white;
+    --bg-l-top:hsl(225, 100%, 98%);
+    --bg-l-card:hsl(227, 47%, 96%);
+    /*Text Colors*/
+    --txt-l-family:Georgia, 'Times New Roman', Times, serif;
+    --txt-l-light-gray:hsl(228, 12%, 44%);
+    --txt-l-black:hsl(230, 17%, 14%);
+}
+
+
+html{
+    max-width: 100vw;
+}
+body{
+    font-family: var(--f-family);
+    background-color: var(--bg-l-top);
+    min-height: 100vh;
+    width: 100%;
+}
+
+
+
+
+
+/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-----DARK MODE CLASSES-----&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+
+
+
+
+
+
+/* BG Changes */
+body.dark{
+    background-color: var(--bg-d-very-dark);
+}
+body.dark header{
+    background-color: var(--bg-d-very-dark-blue);
+}
+body.dark .followers-section div,
+body.dark .overview div{
+    background-color: var(--bg-d-card-desaturated-blue);
+}
+body.dark .overview div:nth-of-type(2) p:last-child::before,
+body.dark .overview div:nth-of-type(7) p:last-child::before,
+body.dark .overview div:nth-of-type(8) p:last-child::before{
+    border-bottom: 4px solid var(--bg-d-card-desaturated-blue) ;
+    border-right: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    border-left: 4px solid transparent;
+    border-top: 4px solid red;
+}
+
+/* TXT Changes */
+/* You had to put classes to the fonts w the same color!! */
+body.dark header h1,
+body.dark .followers-section p:nth-of-type(2),
+body.dark .overview p:nth-child(3){
+    color: var(--txt-d-white);
+}
+body.dark header h4,
+body.dark header .toggle-mode span,
+body.dark .followers-section p:nth-of-type(1),
+body.dark .followers-section p:nth-of-type(3),
+body.dark main h3,
+body.dark .overview p:nth-child(1){
+    color: var(--txt-d-desaturated-blue);
+}
+body.dark .tittle{
+    border-bottom: 1px solid var(--txt-d-desaturated-blue);
+}
+/* Calling the spans and borders to make them fluor */
+body.dark .jam-facebook{
+    background-color: #3a559f;
+    border: 1px solid #3a559f;
+    color: var(--bg-d-card-desaturated-blue);
+    border-radius: 5px;
+    width: 20px;
+}
+body.dark .jam-youtube{
+    background-color: #d81728;
+    color:var(--bg-d-card-desaturated-blue);
+    border-radius:50%;
+    padding: 3px;
+    width: 20px;
+}
+
+
+
+
+
+/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-----MAIN.SECCION02-----&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+
+
+
+
+
+/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-----HEADER-----&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+
+
+
+
+header{
+    background-color: var(--bg-l-color);
+    grid-template-rows: 6rem 3rem;
+    grid-template-columns: 1fr;
+    margin: 0 1rem;
+    height: 10rem;
+    display: grid;
+}
+
+
+
+
+/* Header:Grid ; 1C 2R --- First /// Row01--Flex */
+.tittle{
+    border-bottom: 1px solid var(--txt-l-light-gray);
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+}
+
+
+header h1{
+    color: var(--txt-l-black);
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    font-weight: bold;
+    font-size: 130%;
+}
+header h4{
+    color: var(--txt-l-light-gray);
+    font-size: 57%;
+}
+
+
+
+
+/* Header:Grid ; 1C 2R --- First /// Row02--Flex */
+.toggle-mode{
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    display: flex;
+}
+
+
+.toggle-mode span{
+    color: var(--txt-l-light-gray);
+    letter-spacing: 1px;
+    justify-self: left;
+    font-weight: bold;
+}
+/* Always first the checkbox */
+[type="checkbox"]{
+    display: none;
+}
+.label{
+    background-image: linear-gradient( to right top, rgb(67, 163, 228)  , rgb(0, 231, 173) );
+    border-radius: 50px;
+    height: 1.5rem;
+    width: 3rem;
+    position: relative;
+    transition: 0.5s;
+}
+.label::before{
+    content:'';
+    display:block;
+    width: 45%;
+    background-color:var(--bg-d-card-desaturated-blue);
+    position:absolute;
+    right:5%;
+    bottom:10%;
+    top:10%;
+    border-radius:50%;
+    transition: 0.5s;
+}
+/* Now Css Ball Movement */
+[type="checkbox"]:checked + .label::before{
+    background-color: var(--bg-l-top);
+    right: 50%;
+}
+[type="checkbox"]:checked + .label{
+    background-image: linear-gradient(to right top, gray, var(--txt-l-light-gray));
+}
+
+/* Now Java Styles to add */
+
+
+
+
+/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-----MAIN.SECCION02-----&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+
+
+
+
+
+/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-----MAIN.SECCION01-----&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+
+
+
+
+/* Main:No display----Section01--Grid; 1C 4F-- */
+.followers-section{
+    grid-template-rows: repeat(4,10rem);
+    grid-template-columns: 1fr;
+    grid-row-gap: 1rem;
+    padding: 1rem 1rem;
+    display: grid;
+}
+
+/* The 4 Divs: inst-is-inside-instagram-background to get gradient border effect */
+.face,
+.twit,
+.yout,
+.inst{
+    grid-template-rows: repeat(4,1fr);
+    grid-template-columns: 1fr;
+    justify-items: center;
+    border-radius: 10px;
+    align-items: center;
+    display: grid;
+    background-color: var(--bg-l-card);
+}
+.instagram-background{
+    background: linear-gradient(to right,#FDF497,#FD5949,#D6249F);
+    border-top: 3px solid transparent;
+    border-radius: 10px;
+    position: relative;
+}
+
+/* Border of each div in Section01 */
+.face{
+    border-top: 3px solid #3a559f;
+}
+.twit{
+    border-top: 3px solid #1da1f2;
+}
+.inst{
+    border-top: 3px solid transparent;
+    background-color: var(--bg-l-card);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+}
+.yout{
+    border-top: 3px solid #d81728;
+}
+
+/* Lines of each container. Total:4 */
+.followers-section p:nth-of-type(1){
+    color: var(--txt-l-light-gray);
+    padding-top: 1.3rem;
+    font-size: 80%;
+    font-weight: bold;
+}
+.followers-section p:nth-of-type(2){
+    color: var(--txt-l-black);
+    font-size: 400%;
+}
+.followers-section p:nth-of-type(3){
+    color: var(--txt-l-light-gray);
+    font-weight: lighter;
+    letter-spacing:5px;
+    font-size: 75%;
+}
+
+
+/* Span01 Line01 each Container. It's Logo also */
+.jam{
+    margin-right: 5px;
+}
+.jam-facebook{
+    background-color: #3a559f;
+    border: 1px solid #3a559f;
+    color: whitesmoke;
+    border-radius: 5px;
+    width: 20px;
+}
+.jam-twitter{
+    color: #1da1f2;
+    font-size: 130%;
+}
+.jam-instagram{
+    background: radial-gradient(circle at 30% 107%,#fdf497
+    0%,#FDF497 5%, #FD5949 45%, #D6249F 60%,#285AEB 90%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.jam-youtube{
+    background-color: #d81728;
+    color:whitesmoke;
+    border-radius:50%;
+    padding: 3px;
+    width: 20px;
+}
+
+
+/* 4 Line of each container. */
+.face p:nth-of-type(4),
+.twit p:nth-of-type(4),
+.inst p:nth-of-type(4){
+    color: green;
+    font-size: 67%;
+}
+.yout p:nth-of-type(4){
+    font-size: 67%;
+    color: red;
+}
+
+/* (::Before) of 4 container's Line */
+.face p:nth-of-type(4)::before,
+.twit p:nth-of-type(4)::before,
+.inst p:nth-of-type(4)::before{
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    border-bottom: 4px solid green;
+    translate:-12px 5px;
+    position: absolute;
+    content: '';
+}
+.yout p:nth-of-type(4)::before{
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    border-top: 4px solid red;
+    translate:-12px 5px;
+    position: absolute;
+    content: '';
+}
+
+
+
+
+
+/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-----MAIN.SECCION02-----&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+
+
+
+
+/* Main:No display----Tittle---makes as separator */
+main h3{
+    color: var(--txt-l-light-gray);
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin: 1rem 1rem;
+    font-size: 140;
+}
+
+
+
+
+
+/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-----MAIN.SECCION02-----&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+
+
+
+
+
+/* Main:No display----Section02--Grid; 1C  8R-- */
+.overview{
+    grid-template-rows: repeat(8,6.5rem);
+    grid-template-columns: 1fr;
+    grid-row-gap: 1.3rem;
+    padding: 0 1rem 1rem;
+    display: grid;
+}
+
+/* All Dives:no-display // Position-relative */
+.overview div{
+    background-color: whitesmoke;
+    border-radius: 10px;
+    position: relative;
+    
+}
+
+/* Each Line Inside Dives:position-absolute */
+.overview p{
+    position: absolute;
+}
+
+/* 4 Lines inside Dives */
+.overview p:first-child{
+    color: var(--txt-l-light-gray);
+    font-weight: bold;
+    font-size:80% ;
+    left: 1.3rem;
+    top: 1rem;
+}
+.overview p:nth-child(2){
+    color: var(--txt-l-black);
+    right: 1.3rem;
+    top: 1rem;
+}
+.overview p:nth-child(3){
+    font-size: 160%;
+    bottom:1.3rem;
+    left: 1.3rem;
+}
+.overview p:last-child{
+    color: green;
+    bottom: 1.3rem;
+    font-size: 67%;
+    right: 1.3rem;
+}
+
+/*  (::before) of each 4 Lines dives */
+.overview p:last-child::before{
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid green;
+    translate:-12px 5px;
+    position: absolute;
+    content: '';
+}
+
+/* 4 Line of Dives:Negatives */
+.overview div:nth-of-type(2) p:last-child,
+.overview div:nth-of-type(7) p:last-child,
+.overview div:nth-of-type(8) p:last-child{
+    color: red;
+}
+
+/* (before::) of Each 4 Lines Dives:Negatives */
+.overview div:nth-of-type(2) p:last-child::before,
+.overview div:nth-of-type(7) p:last-child::before,
+.overview div:nth-of-type(8) p:last-child::before{
+    border-bottom: 4px solid var(--bg-l-card) ;
+    border-right: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    border-left: 4px solid transparent;
+    border-top: 4px solid red;
+}
+/* no need to make content? */
