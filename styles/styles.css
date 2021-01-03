@@ -78,7 +78,7 @@ body.dark header h1,
 body.dark .followers-section p:nth-of-type(2),
 body.dark .overview p:nth-child(3){
     color: var(--txt-d-white);
-}
+} 
 body.dark header h4,
 body.dark header .toggle-mode span,
 body.dark .followers-section p:nth-of-type(1),
@@ -166,16 +166,13 @@ header h4{
 }
 
 
-.toggle-mode span{
+.toggle-mode .mode{
     color: var(--txt-l-light-gray);
     letter-spacing: 1px;
     justify-self: left;
     font-weight: bold;
 }
 /* Always first the checkbox */
-[type="checkbox"]{
-    display: none;
-}
 .label{
     background-image: linear-gradient( to right top, rgb(67, 163, 228)  , rgb(0, 231, 173) );
     border-radius: 50px;
@@ -184,8 +181,7 @@ header h4{
     position: relative;
     transition: 0.5s;
 }
-.label::before{
-    content:'';
+.toggle-ball{
     display:block;
     width: 45%;
     background-color:var(--bg-d-card-desaturated-blue);
@@ -195,13 +191,14 @@ header h4{
     top:10%;
     border-radius:50%;
     transition: 0.5s;
+    
 }
 /* Now Css Ball Movement */
-[type="checkbox"]:checked + .label::before{
+ .toggled{
     background-color: var(--bg-l-top);
     right: 50%;
 }
-[type="checkbox"]:checked + .label{
+.colored{
     background-image: linear-gradient(to right top, gray, var(--txt-l-light-gray));
 }
 
