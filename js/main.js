@@ -2,6 +2,7 @@ const checkbox= document.getElementById('boxcheck');
 const mode=document.getElementById('modus')
 
 checkbox.addEventListener('change',e=>{
+        e.preventDefault();
         if(e.target.checked){
                 mode.textContent='Dark Mode'
         }else{
